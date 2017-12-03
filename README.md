@@ -29,6 +29,8 @@ void setup() {
   Kaleidoscope.use(&LEDHomeKeys);
   
   // OPTIONALLY OVERRIDE THE PREDEFINED LED COLORS
+  // Set the non-home keys to a very dim gray using decimal values
+  LEDHomeKeys.thumb_color = CRGB(16,16,16);
   // Set the home thumb keys to a dim green using decimal values
   LEDHomeKeys.thumb_color = CRGB(0,128,0);
   // Set the home index finger keys to bright red (255,0,0) using hexadecimal
@@ -45,6 +47,11 @@ The plugin provides the `LEDHomeKeys` object, which has the following
 properties to set the LED colors used. In all cases, the values are
 `cRGB` values. They can be set either with decimal or hexadecimal values
  and can be set to `0,0,0` to turn off the corresponding LEDs.
+
+### `.non_home_key_color`
+Sets the color to use for all keys that aren't home keys. The default is a
+light gray `#303030` to make it easier to find the rest of the keys in the
+dark.
 
 ### `.index_finger_color`
 Sets the color to use for the two index finger home keys. The default is a
