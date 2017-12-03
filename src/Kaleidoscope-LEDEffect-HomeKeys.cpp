@@ -17,6 +17,8 @@ namespace kaleidoscope {
        no performance penalty): cRGB ActiveModColorEffect::sticky_color = CRGB(0xff, 0, 0)
        */
 
+    cRGB LEDHomeKeys::non_home_key_color = CRGB(0x30, 0x30, 0x30);
+
 //    cRGB LEDHomeKeys::index_finger_color = (cRGB) {0x00, 0x00, 0x9f};
     cRGB LEDHomeKeys::index_finger_color =  CRGB(0x9f, 0x00, 0x00);
 
@@ -27,6 +29,8 @@ namespace kaleidoscope {
     cRGB LEDHomeKeys::thumb_color = CRGB(0x50, 0x00, 0x70);
 
     void LEDHomeKeys::onActivate(void) {
+        ::LEDControl.set_all_leds_to(non_home_key_color);
+
         // Row & Col map available at http://www.keyboard-layout-editor.com/#/gists/208ec9c7f9a08382c101b558f1d983b1
         ::LEDControl.setCrgbAt(2, 4, index_finger_color);           // Left Index (F)
         ::LEDControl.setCrgbAt(2, 3, non_index_fingers_color);      // Left Middle (D)
